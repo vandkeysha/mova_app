@@ -54,7 +54,7 @@ class _CustomLoaderState extends State<CustomLoader>
               child: Container(
                 width: 15,
                 height: 10,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.redAccent,
                   shape: BoxShape.circle,
                 ),
