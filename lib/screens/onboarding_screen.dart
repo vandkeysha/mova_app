@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mova_movie_app/screens/login_choice.dart';
 import '../animations/floating_background.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -23,7 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     },
     {
       "title": "Cinema Experience",
-      "subtitle": "Feel the cinematic vibe on your device.\nLet’s begin!"
+      "subtitle": "Feel the cinematic vibe on your device.\nLet's begin!"
     },
   ];
 
@@ -32,7 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          /// BACKGROUND FIX — pakai IgnorePointer supaya gesture tidak tertahan
+          /// Background fix — pakai IgnorePointer supaya gesture tidak tertahan
           Container(
             color: Colors.black,
             child: SafeArea(
@@ -69,7 +71,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
 
-          /// GRADIENT BAWAH
+          /// gradient bawah
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -88,7 +90,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
 
-          /// TEXT PAGE SLIDER (SEKARANG BISA DIGESER)
+          /// Text page slider 
           PageView.builder(
             controller: _textController,
             itemCount: contents.length,
@@ -97,31 +99,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const SizedBox(height: 120),
+                   SizedBox(height: 120),
                   Text(
                     contents[index]["title"]!,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontSize: 28,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                   SizedBox(height: 8),
                   Text(
                     contents[index]["subtitle"]!,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       color: Colors.white70,
                       fontSize: 15,
                     ),
                   ),
-                  const SizedBox(height: 160),
+                 SizedBox(height: 160),
                 ],
               );
             },
           ),
 
-          /// DOT INDICATOR
+          /// dot indicator (loading indicator)
           Positioned(
             bottom: 130,
             left: 0,
@@ -130,8 +132,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(contents.length, (index) {
                 return AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
+                  duration: Duration(milliseconds: 300),
+                  margin: EdgeInsets.symmetric(horizontal: 5),
                   height: 10,
                   width: _currentIndex == index ? 25 : 10,
                   decoration: BoxDecoration(
@@ -145,29 +147,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
 
-          /// BUTTON GET STARTED
-          Positioned(
-            bottom: 30,
-            left: 25,
-            right: 25,
-            child: Container(
-              height: 55,
-              decoration: BoxDecoration(
-                color: Colors.redAccent,
-                borderRadius: BorderRadius.circular(35),
-              ),
-              child: const Center(
-                child: Text(
-                  "Get Started",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+          /// button get started
+    
+              Positioned(
+                bottom: 30,
+                left: 25,
+                right: 25,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>  LoginChoiceScreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      borderRadius: BorderRadius.circular(35),
+                    ),
+                    child:  Center(
+                      child: Text(
+                        "Get Started",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
         ],
       ),
     );

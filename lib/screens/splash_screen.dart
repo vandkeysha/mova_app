@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Animasi Logo
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1200),
+      duration:  Duration(milliseconds: 1200),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.7, end: 1.0).animate(
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.forward();
 
     // ➜ Auto Pindah ke Onboarding
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, '/onboarding');
     });
   }
@@ -50,11 +50,11 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121216),
+      backgroundColor: Color(0xFF121216),
       body: SafeArea(
         child: Column(
           children: [
-            // LOGO ANIMASI
+            // logo animasi
             Expanded(
               child: Center(
                 child: FadeTransition(
@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen>
               ),
             ),
 
-            // LOADER — Sudah center & posisi bawah aman
+            // Loader — Sudah center & posisi bawah aman
             Padding(
               padding: const EdgeInsets.only(bottom: 60),
               child: Center(
