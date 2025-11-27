@@ -73,12 +73,12 @@ class _SplashScreenState extends State<SplashScreen>
 
             // Loader — Sudah center & posisi bawah aman
             Padding(
-              padding: const EdgeInsets.only(bottom: 60),
+              padding:  EdgeInsets.only(bottom: 60),
               child: Center(
                 child: SizedBox(
                   width: 40,
                   height: 40,
-                  child: const CustomLoader(),
+                  child: CustomLoader(),
                 ),
               ),
             ),

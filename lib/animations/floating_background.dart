@@ -63,12 +63,12 @@ class _FloatingVerticalState extends State<FloatingVertical>
                   children: [
                     // first list
                     ...widget.images[col].map((img) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          padding:  EdgeInsets.symmetric(vertical: 12),
                           child: Image.asset(img, height: 120),
                         )),
                     // duplicate for looping
                     ...widget.images[col].map((img) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          padding:  EdgeInsets.symmetric(vertical: 12),
                           child: Image.asset(img, height: 120),
                         )),
                   ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mova_movie_app/screens/login_choice.dart';
+import 'package:mova_movie_app/screens/choice_screen.dart';
 import '../animations/floating_background.dart';
 
 
@@ -148,39 +148,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
 
           /// button get started
-    
-              Positioned(
-                bottom: 30,
-                left: 25,
-                right: 25,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) =>  LoginChoiceScreen(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 55,
-                    decoration: BoxDecoration(
-                      color: Colors.redAccent,
-                      borderRadius: BorderRadius.circular(35),
-                    ),
-                    child:  Center(
-                      child: Text(
-                        "Get Started",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                Positioned(
+              bottom: 30,
+              left: 25,
+              right: 25,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChoiceScreen()),
+                  );
+                },
+                child: Container(
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: Colors.redAccent,
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Get Started",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ),
               ),
+            ),
         ],
       ),
     );
